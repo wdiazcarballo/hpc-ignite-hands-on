@@ -1,0 +1,42 @@
+# บทที่ 27: การป้องกันภัยพิบัติ
+
+Chapter 27: Disaster Prevention
+
+## วัตถุประสงค์การเรียนรู้
+
+1. วิเคราะห์ข้อมูลภัยพิบัติ
+2. สร้าง Early Warning Systems
+3. จำลองน้ำท่วมและดินถล่ม
+4. ใช้ HPC สำหรับ Real-time Prediction
+
+## โครงสร้างไฟล์
+
+```
+chapter-27-disaster-prevention/
+├── README.md
+├── disaster_data.py        # Disaster data analysis
+├── flood_simulation.py     # Flood simulation
+├── landslide_risk.py       # Landslide risk assessment
+├── early_warning.py        # Early warning system
+└── sbatch/
+    └── disaster_job.sbatch
+```
+
+## การใช้งาน
+
+```bash
+# Create environment
+mamba create -n hpc-disaster python=3.9 numpy scipy pandas matplotlib
+mamba activate hpc-disaster
+
+# Run examples
+python disaster_data.py
+python flood_simulation.py
+```
+
+## Northern Thailand Disasters
+
+- **น้ำท่วม (Flood)**: Annual monsoon floods
+- **ดินถล่ม (Landslide)**: Mountain regions
+- **หมอกควัน (Haze)**: Burning season (Feb-Apr)
+- **ภัยแล้ง (Drought)**: El Niño years
