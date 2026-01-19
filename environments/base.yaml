@@ -1,0 +1,19 @@
+name: hpc-ignite
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy>=1.24
+  - pandas>=2.0
+  - matplotlib>=3.7
+  - scipy>=1.10
+  - jupyter>=1.0
+  - jupyterlab>=4.0
+  - ipykernel
+  - tqdm
+  - pyyaml
+  - requests
+  - pip
+  - pip:
+    - pytest>=7.0

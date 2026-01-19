@@ -1,0 +1,14 @@
+# ML/Deep Learning requirements
+# Note: Install PyTorch via LANTA module for GPU support
+# module load PyTorch/2.0.1-CUDA-11.7.0
+
+torch>=2.0
+torchvision
+torchaudio
+transformers>=4.30
+datasets>=2.14
+accelerate>=0.21
+scikit-learn>=1.3
+tensorboard
+wandb
+pillow

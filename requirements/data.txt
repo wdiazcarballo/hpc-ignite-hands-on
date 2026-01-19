@@ -1,0 +1,9 @@
+# Data processing requirements
+dask[complete]>=2023.5
+distributed>=2023.5
+dask-jobqueue
+xarray
+zarr
+pyarrow
+fastparquet
+polars

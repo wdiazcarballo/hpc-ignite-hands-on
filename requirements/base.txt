@@ -1,0 +1,11 @@
+# Base requirements for HPC Ignite Hands-On Labs
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.7
+scipy>=1.10
+jupyter>=1.0
+jupyterlab>=4.0
+tqdm
+pyyaml
+requests
+pytest>=7.0

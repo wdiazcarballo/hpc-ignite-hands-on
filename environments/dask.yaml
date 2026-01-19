@@ -1,0 +1,17 @@
+name: hpc-ignite-dask
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - dask>=2023.5
+  - distributed>=2023.5
+  - dask-jobqueue
+  - numpy>=1.24
+  - pandas>=2.0
+  - xarray
+  - zarr
+  - matplotlib>=3.7
+  - bokeh
+  - jupyter>=1.0
+  - pip

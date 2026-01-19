@@ -1,0 +1,149 @@
+# HPC Ignite Hands-On Labs
+
+[![LANTA Compatible](https://img.shields.io/badge/LANTA-Compatible-blue.svg)](https://docs.lanta.nstda.or.th)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+Runnable code examples and hands-on exercises for the HPC Ignite curriculum, designed for execution on Thailand's LANTA supercomputer.
+
+## Quick Start on LANTA
+
+```bash
+# 1. Clone the repository
+cd $HOME
+git clone https://github.com/wdiazcarballo/hpc-ignite-hands-on.git
+cd hpc-ignite-hands-on
+
+# 2. Load base environment
+source slurm/module-loads/base.sh
+
+# 3. Create conda environment
+mamba env create -f environments/base.yaml
+mamba activate hpc-ignite
+
+# 4. Run your first example
+cd foundation/chapter-00
+sbatch hello-lanta.sbatch
+```
+
+## Repository Structure
+
+```
+hpc-ignite-hands-on/
+├── foundation/              # บทที่ 0-1: HPC 101, Linux พื้นฐาน
+├── core-hpc/                # บทที่ 2-10: MPI, PyTorch, Dask, Spark, GPU
+├── ai-development/          # บทที่ 11-13: Containers, AI Dev, Prompts
+├── applications/            # บทที่ 14-19: แอปพลิเคชันภาคเหนือ
+├── domain-science/          # บทที่ 20-27: Chemistry, Climate, Bio
+├── advanced/                # บทที่ 28-30: LLM, Security, Carbon
+├── environments/            # Conda environment files
+├── slurm/                   # SLURM templates and module loads
+├── requirements/            # pip requirements files
+└── tests/                   # Validation scripts
+```
+
+## Chapter Overview
+
+| Track | Chapters | Topics |
+|-------|----------|--------|
+| **Foundation** | 0-1 | HPC 101, Linux Basics |
+| **Core HPC** | 2-10 | Environment, Parallel, PyTorch, Dask, MPI, Spark, GPU |
+| **AI Development** | 11-13 | Containers, AI Development, Prompt Engineering |
+| **Applications** | 14-19 | 3D Design, Educational AI, Smart Home, Health, Dashboard |
+| **Domain Science** | 20-27 | Chemistry, MD, Climate, Materials, Bio, Agriculture, Disaster |
+| **Advanced** | 28-30 | LLM Fine-tuning, Security, Carbon Verification |
+
+## LANTA System Requirements
+
+### Compute Resources
+
+| Configuration | Nodes | CPUs | GPUs | Memory | Partition |
+|---------------|-------|------|------|--------|-----------|
+| CPU Small | 1 | 32 | 0 | 64G | compute |
+| CPU Large | 4 | 128 | 0 | 256G | compute |
+| GPU Single | 1 | 32 | 1 | 128G | gpu |
+| GPU Multi | 1 | 128 | 4 | 512G | gpu |
+
+### File Systems
+
+```bash
+$HOME      # 50 GB - Scripts, configs (persistent)
+$SCRATCH   # 5 TB - Data, outputs (30-day retention)
+$PROJECT   # Group storage - Shared datasets
+```
+
+### Module Environment
+
+```bash
+module load cray-python/3.10.10
+module load Miniconda3
+module load PyTorch/2.0.1-CUDA-11.7.0
+module load OpenMPI/4.1.4
+```
+
+## Environment Setup
+
+### Option 1: Conda (Recommended)
+
+```bash
+# Base environment
+mamba env create -f environments/base.yaml
+
+# ML/GPU environment
+mamba env create -f environments/ml-gpu.yaml
+
+# MPI environment
+mamba env create -f environments/mpi.yaml
+```
+
+### Option 2: pip
+
+```bash
+pip install -r requirements/base.txt
+pip install -r requirements/ml.txt  # For ML chapters
+pip install -r requirements/mpi.txt # For MPI chapters
+```
+
+## Running Examples
+
+### CPU Jobs
+
+```bash
+cd core-hpc/chapter-03-parallel/mpi
+sbatch parallel_sum.sbatch
+```
+
+### GPU Jobs
+
+```bash
+cd core-hpc/chapter-04-deep-learning
+sbatch mnist_training.sbatch
+```
+
+### Interactive Session
+
+```bash
+srun --partition=gpu --gpus=1 --time=01:00:00 --pty bash
+module load PyTorch/2.0.1-CUDA-11.7.0
+python pytorch_basics.py
+```
+
+## Related Resources
+
+- **Curriculum Book**: [HPC Ignite Curriculum](https://github.com/wdiazcarballo/hpc-curriculum/tree/main/docs/curriculum-book)
+- **SCORM Modules**: [Interactive Learning Modules](https://github.com/wdiazcarballo/hpc-curriculum/tree/main/scorm-modules)
+- **LANTA Documentation**: [docs.lanta.nstda.or.th](https://docs.lanta.nstda.or.th)
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/new-example`)
+3. Test on LANTA or compatible HPC system
+4. Submit a pull request
+
+## License
+
+MIT License - See [LICENSE](LICENSE) for details.
+
+---
+
+**HPC Ignite Project** | Thailand National HPC Training Initiative
